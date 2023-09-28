@@ -42,8 +42,31 @@ def stemmed_query(raw_query):
     ipq = inverse_polish(raw_query)
     return stem_polish_query(ipq)
 
-def run_query(stemmed_query, data_dictionary):
-    pass
+def union(A, B):
+    return A.union(B)
+
+def intersect(A, B):
+    return A.intersection(B)
+
+def complement(A, universe):
+    return set(universe).difference(A)
+
+def get_query(stemmed_query, data_dictionary, list_of_files):
+    list_of_files = set( list_of_files  )
+    operators = ["!", "u", "n"]
+    stack = []
+    for term in stemmed_query:
+        if term not in operators:
+            stack.append(set(data_dictionary.find( term )))
+        else:
+            if term == "!":
+                stack.append(complement(stack.pop(), list_of_files))
+            elif term == "u":
+                stack.append(union(stack.pop(), stack.pop()))
+            elif term == "n":
+                stack.append(intersect(stack.pop(), stack.pop()))
+        print(stack)
+    return list(stack.pop())
 
 if __name__ == "__main__":
     query = input("Introduce query: ") or "!(CACA u (PEOPEO n (CACA u PEOPEO)))"
@@ -51,3 +74,5 @@ if __name__ == "__main__":
     print(ipq)
     spq = stem_polish_query(ipq)
     print(spq)
+    print(get_query(spq, None, None))
+print("restart")
