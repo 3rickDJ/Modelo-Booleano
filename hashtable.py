@@ -1,5 +1,5 @@
 # Capacity for internal array
-INITIAL_CAPACITY = 50
+INITIAL_CAPACITY = 5081
 
 # Node data structure - essentially a LinkedList node
 class Node:
@@ -13,8 +13,6 @@ class Node:
 		return str(self)
 # Hash table with separate chaining
 class HashTable:
-	def __str__(self):
-      return self.buckets
 	# Initialize hash table
 	def __init__(self):
 		self.capacity = INITIAL_CAPACITY
@@ -101,5 +99,5 @@ class HashTable:
 				self.buckets[index] = node.next # May be None, or the next match
 			else:
 				prev.next = prev.next.next # LinkedList delete by skipping over
-			# Return the deleted result
+			# Return the deleted result 
 			return result

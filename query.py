@@ -1,3 +1,6 @@
+import nltk
+from nltk.stem import SnowballStemmer
+nltk.download('snowball_data') # Snowball stemmer data
 import re
 def inverse_polish(query):
     operators = ["!", "u", "n", "(", ")"]
@@ -25,5 +28,26 @@ def inverse_polish(query):
     # append the last operand when finishing if expression not englobed by parenthesis
     if queue:
         polish.append(queue.pop())
-    
+
     return polish
+
+def stem_polish_query(polish):
+    stemmer = SnowballStemmer("spanish")
+    for i, term in enumerate(polish):
+        if term not in ["!", "u", "n"]:
+            polish[i] = stemmer.stem(term)
+    return polish
+
+def stemmed_query(raw_query):
+    ipq = inverse_polish(raw_query)
+    return stem_polish_query(ipq)
+
+def run_query(stemmed_query, data_dictionary):
+    pass
+
+if __name__ == "__main__":
+    query = input("Introduce query: ") or "!(CACA u (PEOPEO n (CACA u PEOPEO)))"
+    ipq = inverse_polish(query)
+    print(ipq)
+    spq = stem_polish_query(ipq)
+    print(spq)
