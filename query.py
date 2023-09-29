@@ -65,7 +65,6 @@ def get_query(stemmed_query, data_dictionary, list_of_files):
                 stack.append(union(stack.pop(), stack.pop()))
             elif term == "n":
                 stack.append(intersect(stack.pop(), stack.pop()))
-        print(stack)
     return list(stack.pop())
 
 if __name__ == "__main__":
