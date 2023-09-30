@@ -33,7 +33,7 @@ class ProcessData():
 
     def get_stems(self):
         tokens = tokenize(self.document.content)
-        clean_tokens = clean(tokens)
+        clean_tokens = remove_stop_words(tokens)
         self.terms = set(clean_tokens)
         stems = stem(clean_tokens)
         return stems
