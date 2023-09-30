@@ -18,7 +18,7 @@ def read_pdf(path):
     file = fitz.open(path)
     content = []
     for page in file:
-        content.append(page.getText())
+        content.append(page.get_text())
     return ''.join(content)
 
 def clean_content(content):
