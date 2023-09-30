@@ -1,6 +1,5 @@
 from corpus import corpus
 from query import query
-import query
 
 class BooleanModel:
     def __init__(self, path="documentos/"):
