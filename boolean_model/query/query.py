@@ -6,7 +6,7 @@ def query(dictionary_stems, raw_query, path_files):
 
 def evaluate_query(stemmed_query, data_dictionary, list_of_files):
     assert isinstance(stemmed_query, list)
-    assert isinstance(list_of_files, set)
+    list_of_files = set(list_of_files)
     operators = ["!", "u", "n"]
     stack = []
     for term in stemmed_query:

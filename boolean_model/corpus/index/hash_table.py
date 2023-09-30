@@ -81,7 +81,7 @@ class HashTable:
     # 4. Now, node is the requested key/value pair or None
     if node is None:
       # Not found
-      return None
+      return set()
     else:
       # Found - return the data value
       return node.value
