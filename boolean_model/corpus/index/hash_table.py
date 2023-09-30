@@ -19,10 +19,10 @@ class HashTable:
     self.size = 0
     self.buckets = [None]*self.capacity
 
-    def __str__(self):
-        return "<HashTable: capacity=%d, size=%d>" % (self.capacity, self.size)
-    def __repr__(self):
-        return str(self)
+  def __str__(self):
+    return "<HashTable: capacity=%d, size=%d>" % (self.capacity, self.size)
+  def __repr__(self):
+    return str(self)
 
   # Generate a hash for a given key
   # Input:  key - string
@@ -37,8 +37,8 @@ class HashTable:
       hashsum = hashsum % self.capacity
     return hashsum
 
-    def __setitem__(self, key, value):
-        self.insert(key, value)
+  def __setitem__(self, key, value):
+    self.insert(key, value)
 
   # Insert a key,value pair to the hashtable
   # Input:  key - string
@@ -64,8 +64,8 @@ class HashTable:
     # Add a new node at the end of the list with provided key/value
     prev.next = Node(key, value)
 
-    def __getitem__(self, key):
-        return self.find(key)
+  def __getitem__(self, key):
+    return self.find(key)
 
   # Find a data value based on key
   # Input:  key - string
