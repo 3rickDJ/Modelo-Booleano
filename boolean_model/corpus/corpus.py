@@ -15,7 +15,7 @@ def read_corpus(path):
 def read_data(path):
     # Read the data from the given path.
     files = read_file_paths(path)
-    corpus = [ data_preprocessing.process_text.ProcessData(file) for file in files ]
+    corpus = [ process_text.ProcessData(file) for file in files ]
     stems = set( chain.from_iterable( [ process_data.get_stems() for process_data in corpus ] ) )
     # Return the corpus.
     return files, corpus, stems
