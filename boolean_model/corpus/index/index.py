@@ -1,9 +1,8 @@
-from . import hash_table
-
+from .hash_table import HashTable
 def index(stems, corpus):
     # Index the given corpus.
-    dictionary = hash_table.HashTable()
+    dictionary = HashTable()
     for stem in stems:
-        dictionary[stem] = [ process_data.path for process_data in corpus if stem in document.stems ]
+        dictionary[stem] = [ process_data.path for process_data in corpus if stem in process_data.stems ]
     # Return the dictionary.
     return dictionary
