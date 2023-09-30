@@ -1,4 +1,4 @@
-import postfix_notation
+from . import postfix_notation
 
 def query(dictionary_stems, raw_query, path_files)
     postfix = postfix_notation.postfix(raw_query)

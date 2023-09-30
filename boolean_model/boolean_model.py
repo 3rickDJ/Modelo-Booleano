@@ -1,4 +1,5 @@
-import corpus
+from corpus import corpus
+from query import query
 import query
 
 class BooleanModel:

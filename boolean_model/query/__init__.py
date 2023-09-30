@@ -1,2 +1,2 @@
-import .query
-import .postfix_notation
+from . import query
+from . import postfix_notation

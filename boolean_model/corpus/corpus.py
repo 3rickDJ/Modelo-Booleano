@@ -1,5 +1,5 @@
-from index import index
-import data_preprocessing
+from .index import index
+from .data_preprocessing import process_text
 import os
 from itertools import chain
 
