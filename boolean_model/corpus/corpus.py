@@ -1,4 +1,4 @@
-import index
+from index import index
 import data_preprocessing
 import os
 from itertools import chain
