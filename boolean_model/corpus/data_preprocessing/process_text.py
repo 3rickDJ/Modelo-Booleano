@@ -29,7 +29,6 @@ class ProcessData():
     def __init__(self, path):
         self.path = path
         self.document = document.Document(path)
-        self.stems = self.get_stems()
 
     def get_stems(self):
         tokens = tokenize(self.document.content)
